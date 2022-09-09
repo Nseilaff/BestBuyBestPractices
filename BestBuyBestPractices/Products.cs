@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace BestBuyBestPractices
 {
-   public class Departments
+    public class Products
     {
-        public int DepartmentID { get; set; }
+        public int CategoryID { get; set; }
         public string Name { get; set; }
+        public double Price {get; set; }
+        
     }
 }

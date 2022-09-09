@@ -3,7 +3,8 @@ using System.Data;
 using System.IO;
 using MySql.Data.MySqlClient;
 using Microsoft.Extensions.Configuration;
-using DapperExercise1;
+using BestBuyBestPractices;
+using System.Collections.Generic;
 //^^^^MUST HAVE USING DIRECTIVES^^^^
 
 var config = new ConfigurationBuilder()
@@ -13,7 +14,7 @@ var config = new ConfigurationBuilder()
 string connString = config.GetConnectionString("DefaultConnection");
 IDbConnection conn = new MySqlConnection(connString);
 
-var newConn = new DapperDepartmentsRepository(conn);
+var newConn = new DapperDepartmentsReopsitory(conn);
 
 var department = newConn.GetAllDepartments();
 
@@ -28,3 +29,14 @@ Console.WriteLine("Create a new department:");
 var userIn = Console.ReadLine();
 newConn.AddDepartment(userIn);
 
+var newPro = new DapperProductRepository(conn);
+
+var product = newPro.GetAllProducts();
+
+foreach (var item in product)
+{
+    Console.WriteLine($"{item.Name}");
+    Console.WriteLine($"{item.Price}");
+    Console.WriteLine($"{item.CategoryID}");
+    Console.WriteLine();
+}

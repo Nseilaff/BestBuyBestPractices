@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace BestBuyBestPractices
 {
-   public class Departments
+   internal interface DepartmentRepository
     {
-        public int DepartmentID { get; set; }
-        public string Name { get; set; }
+        IEnumerable<Departments> GetAllDepartments();
+        public void AddDepartment(string newDep);
     }
 }
