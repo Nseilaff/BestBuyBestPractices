@@ -32,11 +32,16 @@ newConn.AddDepartment(userIn);
 var newPro = new DapperProductRepository(conn);
 
 var product = newPro.GetAllProducts();
-
+Console.WriteLine("Enter New Product: ");
+var name = Console.ReadLine();
+Console.WriteLine("Enter Price");
+var price = double.Parse(Console.ReadLine());
+Console.WriteLine("Enter Category ID");
+var id = int.Parse(Console.ReadLine());
 foreach (var item in product)
 {
-    Console.WriteLine($"{item.Name}");
-    Console.WriteLine($"{item.Price}");
-    Console.WriteLine($"{item.CategoryID}");
+    Console.WriteLine($"Name: {item.Name}");
+    Console.WriteLine($"Price: {item.Price}");
+    Console.WriteLine($"Category: {item.CategoryID}");
     Console.WriteLine();
 }
